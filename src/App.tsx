@@ -1,13 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button } from './ui/button/button';
+import { Title } from './feauters/title/title';
+import { Header, Burger, UserName } from './feauters/header';
+import { Tabs, Tab } from './feauters/tabs';
+import { Input } from './ui/input/input';
 
-function App() {
-  const onClick = () => {
-    console.log('clicked');
-  };
-  return <Button onClick={onClick}>OK</Button>;
+export function App() {
+  const name = 'Alex Young';
+  return (
+    <>
+      <div className="container">
+        <Title> Sign In </Title>
+      </div>
+      <div className="container">
+        <Header>
+          <Burger>{name}</Burger>
+          <Input labelText=" " placeholder="Welcome!" />
+          <UserName>{name}</UserName>
+        </Header>
+      </div>
+      <div className="container">
+        <Tabs></Tabs>
+      </div>
+    </>
+  );
 }
 
-export default App;
+// export function AddTitle() {
+//   return <Title> Sign In </Title>;
+// }
