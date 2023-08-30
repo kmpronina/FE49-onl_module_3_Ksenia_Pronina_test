@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import { Button } from './ui/button/button';
 import { Title } from './feauters/title/title';
 import { Header, Burger, UserName } from './feauters/header';
-import { Tabs, Tab } from './feauters/tabs';
+import { Tabs } from './feauters/tabs';
+import { Tab } from './feauters/tabs/tab';
 import { Input } from './ui/input/input';
 
 export function App() {
-  const name = 'Alex Young';
+  const name = 'Ksenia Pronina';
   return (
     <>
       <div className="container">
@@ -21,7 +21,11 @@ export function App() {
         </Header>
       </div>
       <div className="container">
-        <Tabs></Tabs>
+        <Tabs>
+          <Tab title="All">All cards</Tab>
+          <Tab title="Favorites">Only favorite cards</Tab>
+          <Tab title="Popular">Only popular cards</Tab>
+        </Tabs>
       </div>
     </>
   );

@@ -1,22 +1,33 @@
 import React from 'react';
+import { ReactElement, useState } from 'react';
 import styled from 'styled-components';
-import { Tab } from './buttons';
+import { TabTitle } from './tab-title';
 
 type Props = {
-  children?: any;
+  children: ReactElement[];
 };
 
 export const Tabs: React.FC<Props> = ({ children }) => {
+  const [selectedTab, setSelectedTab] = useState(0);
   return (
-    <TabsWrap>
-      <Tab variant="primary">All</Tab>
-      <Tab variant="secondary">My favorites</Tab>
-      <Tab variant="disabled">Popular</Tab>
-    </TabsWrap>
+    <div>
+      <TabsWrap>
+        {children.map((item, index) => (
+          <TabTitle
+            key={index}
+            title={item.props.title}
+            index={index}
+            setSelectedTab={setSelectedTab}
+            variant={'secondary'}
+          />
+        ))}
+      </TabsWrap>
+      {children[selectedTab]}
+    </div>
   );
 };
 
-const TabsWrap = styled.div`
+const TabsWrap = styled.li`
   display: flex;
   padding: 15px -15px;
   width: 100%;

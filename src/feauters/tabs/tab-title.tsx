@@ -2,22 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 
 type Props = {
+  title: string;
+  index: number;
+  disabled?: boolean;
   variant: 'primary' | 'secondary' | 'disabled';
-  children: string;
-  disabled?: string;
+  setSelectedTab: (index: number) => void;
 };
-// onClick?: () => void;
-export const Tab: React.FC<Props> = ({ variant, children }) => {
+
+export const TabTitle: React.FC<Props> = ({
+  title,
+  setSelectedTab,
+  index,
+  disabled,
+  variant
+}) => {
   return (
-    <TabWrapper type="button" $variant={variant}>
-      {children}
-    </TabWrapper>
+    <TabTitleWrapper>
+      <TabTitleButton
+        type="button"
+        onClick={() => setSelectedTab(index)}
+        disabled={disabled}
+        $variant={variant}
+      >
+        {title}
+      </TabTitleButton>
+    </TabTitleWrapper>
   );
 };
-// onClick={() => onClick()}
-// преобразйется в React.createElement
-const css = String.raw;
-const TabWrapper = styled.button<{
+
+const TabTitleWrapper = styled.li`
+  all: unset;
+`;
+
+const TabTitleButton = styled.button<{
   $variant: 'primary' | 'secondary' | 'disabled';
 }>`
   all: unset;
