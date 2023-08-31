@@ -1,2 +1,3 @@
+export { TabTitle } from './tab-title';
 export { Tabs } from './tabs';
-export { Tab } from './tab';
+export { TabArea } from './tab';

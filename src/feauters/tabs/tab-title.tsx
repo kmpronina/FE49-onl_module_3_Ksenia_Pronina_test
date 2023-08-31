@@ -1,11 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 type Props = {
   title: string;
   index: number;
   disabled?: boolean;
-  variant: 'primary' | 'secondary' | 'disabled';
+  variant?: 'primary' | 'secondary';
   setSelectedTab: (index: number) => void;
 };
 
@@ -16,13 +17,18 @@ export const TabTitle: React.FC<Props> = ({
   disabled,
   variant
 }) => {
+  const [activeTab, setActiveTab] = useState(false);
   return (
     <TabTitleWrapper>
       <TabTitleButton
         type="button"
-        onClick={() => setSelectedTab(index)}
+        className={activeTab ? 'active' : 'inactive'}
+        onClick={() => {
+          setSelectedTab(index);
+          setActiveTab(activeTab => !activeTab);
+        }}
         disabled={disabled}
-        $variant={variant}
+        $variant={activeTab ? 'primary' : 'secondary'}
       >
         {title}
       </TabTitleButton>
@@ -35,7 +41,7 @@ const TabTitleWrapper = styled.li`
 `;
 
 const TabTitleButton = styled.button<{
-  $variant: 'primary' | 'secondary' | 'disabled';
+  $variant: 'primary' | 'secondary';
 }>`
   all: unset;
   cursor: pointer;
@@ -54,9 +60,9 @@ const TabTitleButton = styled.button<{
         return `
         border-bottom: 3px solid white`;
       }
-      case 'disabled': {
-        return `color: gray`;
-      }
+      // case 'disabled': {
+      //   return `color: gray`;
+      // }
       default: {
         return ``;
       }

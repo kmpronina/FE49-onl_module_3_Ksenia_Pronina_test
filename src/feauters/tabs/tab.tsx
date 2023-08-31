@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 type Props = {
   title: string;
-  children: string;
+  children: any;
 };
 
-export const Tab: React.FC<Props> = ({ children }) => {
+export const TabArea: React.FC<Props> = ({ children }) => {
   return <TabWrapper>{children}</TabWrapper>;
 };
 
