@@ -136,5 +136,6 @@ const TabButton = styled.button`
   font-size: 16px;
   font-weight: 600;
   &:hover {
+    color: #3457d5;
   }
 `;
