@@ -14,17 +14,17 @@ export const Burger: React.FC<Props> = ({ children }) => {
       <BurgerWrapper type="button" onClick={() => setIsOpened(!isOpened)}>
         {isOpened ? (
           <img
-            width="40"
-            height="40"
-            src="https://img.icons8.com/fluency-systems-regular/48/multiply.png"
-            alt="multiply"
+            width="20"
+            height="20"
+            src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/delete-sign.png"
+            alt="close"
           />
         ) : (
           <img
-            width="40"
-            height="40"
-            src="https://img.icons8.com/fluency-systems-regular/48/menu--v1.png"
-            alt="menu--v1"
+            width="20"
+            height="20"
+            src="https://img.icons8.com/ios-filled/50/FFFFFF/menu--v6.png"
+            alt="menu"
           />
         )}
       </BurgerWrapper>

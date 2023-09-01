@@ -162,6 +162,7 @@ const LikesCounter = styled.span`
 const InfoArea = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
 `;
 
 const SaveButton = styled.button`

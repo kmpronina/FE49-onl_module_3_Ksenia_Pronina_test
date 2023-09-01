@@ -27,7 +27,7 @@ export const Input: React.FC<Props> = ({
   );
 };
 const Label = styled.label`
-  width: 65%;
+  width: 70%;
   margin: 10px 0;
 `;
 const InrutWrapper = styled.input<{ borderColor?: string }>`
@@ -37,7 +37,7 @@ const InrutWrapper = styled.input<{ borderColor?: string }>`
   border-radius: 2px;
   line-height: 2;
   padding: 5px;
-  background: white;
+  background-color: #6495ed;
 
   // &:focus {
   //   border: 1px solid white;
